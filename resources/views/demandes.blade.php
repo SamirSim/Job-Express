@@ -115,7 +115,7 @@
               </div>
               <div class="requestItemID">
                 <div class="requestItemAvatar">
-                  <img src="{{ $demande->utilisateur->photo }}" alt="">
+                  <img src="{{ asset($demande->utilisateur->photo) }}" alt="">
                 </div>
                 <div class="requestItemInfos">
                   <div class="requestItemName">{{ $demande->utilisateur->nom }} {{ $demande->utilisateur->prenom }}</div>

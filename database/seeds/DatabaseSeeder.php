@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
     	/** table utilisateurs **/
     	DB::table('utilisateurs')->delete();
        	DB::table('utilisateurs')->insert([ 
-       		['nom' => "Abboud", 'prenom' => "Bakir", 'dateNaissance' => "", 'photo' => "../imgs/photo1.jpeg"],
-       		['nom' => "Kellou", 'prenom' => "Brahim", 'dateNaissance' => "", 'photo' => "../imgs/photo2.jpeg"],
-       		['nom' => "Ahmed Bacha", 'prenom' => "Ibrahim", 'dateNaissance' => "", 'photo' => "../imgs/photo3.jpeg"],
-       		['nom' => "Si-mohammed", 'prenom' => "Samir", 'dateNaissance' => "", 'photo' => "../imgs/photo4.jpeg"],
-       		['nom' => "Ferhati", 'prenom' => "Amina", 'dateNaissance' => "", 'photo' => "../imgs/photo1.jpeg"],
-       		['nom' => "Maafi", 'prenom' => "Hanene",'dateNaissance' => "", 'photo' => "../imgs/photo1.jpeg"]       			 
+       		['nom' => "Abboud", 'prenom' => "Bakir", 'dateNaissance' => "", 'photo' => "/imgs/photo1.jpg"],
+       		['nom' => "Kellou", 'prenom' => "Brahim", 'dateNaissance' => "", 'photo' => "/imgs/photo2.jpg"],
+       		['nom' => "Ahmed Bacha", 'prenom' => "Ibrahim", 'dateNaissance' => "", 'photo' => "/imgs/photo3.jpg"],
+       		['nom' => "Si-mohammed", 'prenom' => "Samir", 'dateNaissance' => "", 'photo' => "/imgs/photo4.jpg"],
+       		['nom' => "Ferhati", 'prenom' => "Amina", 'dateNaissance' => "", 'photo' => "/imgs/photo1.jpg"],
+       		['nom' => "Maafi", 'prenom' => "Hanene",'dateNaissance' => "", 'photo' => "/imgs/photo1.jpg"]       			 
        	]);
 
        	/** table demandes **/
