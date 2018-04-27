@@ -4,6 +4,7 @@
 	<title>Demande</title>
 </head>
 <body>
+	
 	<h3>Titre : {{ $demande->titre }}</h2>
 	<h3>{{ $demande->utilisateur->nom }} {{ $demande->utilisateur->prenom }}</h3>
 	<h3>Categorie : {{ $demande->categorie }}</h3>

@@ -26,3 +26,5 @@ Route::get('demandeInfo/{id}', 'DemandeController@demandeInfo');
 
 Route::post('/demandeInfo','OffreController@insert');
 
+Route::get('tousLesDemandes/{categorie}', 'DemandeController@filter');
+
