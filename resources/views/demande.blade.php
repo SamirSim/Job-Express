@@ -21,13 +21,12 @@
     <input type="text" name="lieu" placeholder="lieu">
     <input type="text" name="description" placeholder="description">
     <input type="text" name="montant" placeholder="montant">
-    <input type="text" name="categorie" placeholder="categorie">
     <SELECT  type="text" name="categorie" size="1">
-<OPTION>Ménage
-<OPTION>Bricolage
-</SELECT>
-    <input type="hidden" name="idUser" value="105">
-     <button type="submit" >Envoyer le message</button>
+      <OPTION>Ménage
+      <OPTION>Bricolage
+    </SELECT>
+    <input type="hidden" name="idUser" value="6">
+    <button type="submit" >Envoyer le message</button>
 	</form>
      
   </div>
