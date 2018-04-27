@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- Bootstrap CSS -->
+		
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/jquery.datetimepicker.css">
+		<link rel="stylesheet" href="css/main.css">
+		<style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .controls {
+        margin-top: 10px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 300px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+
+      .pac-container {
+        font-family: Roboto;
+      }
+
+      #type-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        padding: 5px 11px 0px 11px;
+      }
+
+      #type-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+    </style>
+
+		<title>Demander un service</title>
+	</head>
+	<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto navbar-white">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Demander un service</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tous les demandes</a>
+            </li>
+            <li id="notification-sub-menu" class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#notification-sub-menu" role="button">
+                <i class="fa fa-bell-o fa-lg"></i> 
+                <span class="badge">1</span>
+                <span class="caret"></span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Utilisateur
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Paramèteres</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Déconnexion</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+		<header class="asking-post-cover">
+      <div class="overlay">
+        <div class="intro text-center">
+          <div class="container">
+            <h1 class="intro-title text-shadow">Demander un service</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+  
+    <div class="how-post-steps text-center hidden-xs">
+      <div class="container">
+        <div class="row">
+          <div class="how-post-step col-xs-12 col-sm-4">
+            <span class="bullet-circle">1</span> 
+            <p class="how-post-subtitle">Décrire votre besoin</p>
+          </div>
+          <div class="how-post-step col-xs-12 col-sm-4">
+            <span class="bullet-circle">2</span> 
+            <p class="how-post-subtitle">Consulter les offres</p>
+          </div>
+          <div class="how-post-step col-xs-12 col-sm-4">
+            <span class="bullet-circle">3</span> 
+            <p class="how-post-subtitle">Sélectionner un jobeur</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="type-selector" class="controls">
+      <input type="radio" name="type" id="changetype-all" checked="checked">
+      <label for="changetype-all">All</label>
+
+      <input type="radio" name="type" id="changetype-establishment">
+      <label for="changetype-establishment">Establishments</label>
+
+      <input type="radio" name="type" id="changetype-address">
+      <label for="changetype-address">Addresses</label>
+
+      <input type="radio" name="type" id="changetype-geocode">
+      <label for="changetype-geocode">Geocodes</label>
+    </div>
+    
+
+    
+    <!-- Asking post -->
+		<section>
+      <div class="asking-post">
+        <div class="container">
+          <div class="asking-post-title">
+            <h2></h2>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="card-head">
+                <h5 class="card-title">Détail du besoin</h5>
+              </div>
+              <form>
+                <div class="row">
+                  <div class="form-group col-sm-6">
+                    <label class="control-label" for="job_categorie">Catégorie du travail</label>
+                    <select class="form-control" id="job_categorie">
+                      <option>Bricolage</option>
+                      <option>Jardinage</option>
+                      <option>Déménagement</option>
+                      <option>Ménage</option>
+                      <option>Garde d'enfants</option>
+                      <option>Animaux</option>
+                      <option>Informatique</option>
+                      <option>Conciergerie</option>
+                    </select> 
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label class="control-label" for="job_title">Titre du job</label>
+                    <input placeholder="De quoi avez-vous besoin ?" maxlength="80" class="form-control" data-component="field-validator" data-summary-field="" size="80" type="text" name="job[title]" id="job_title">
+                  </div>
+                </div>
+                  
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="control-label" for="job_location">Adresse complète</label>
+                      <input type="text" id="job_location" placeholder="Lieu du travail" data-provide="typeahead" data-address="" data-summary-field="" data-field-type="autocomplete" data-validation-type="required-if" data-target="[data-field=&quot;address_name&quot;]" data-value="" autocomplete="off" size="30" class="form-control">
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-sm-6">
+                        <label class="control-label" for="job_date">Date</label>
+                        <input type="date" id="" placeholder="Quand vous en avez besoin ?" data-provide="typeahead" data-address="" data-summary-field="" data-field-type="autocomplete" data-validation-type="required-if" data-target="[data-field=&quot;address_name&quot;]" data-value="" autocomplete="off" size="30" class="form-control">
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <label class="control-label" for="job_budget">Budget</label>
+                        <input type="text" id="job_budget" placeholder="Budget estimé" data-provide="typeahead" data-address="" data-summary-field="" data-field-type="autocomplete" data-validation-type="required-if" data-target="[data-field=&quot;address_name&quot;]" data-value="" autocomplete="off" size="30" class="form-control">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label" for="job_description">Description</label>
+                      <textarea id="job_description" placeholder="Décrivez votre besoin" data-provide="typeahead" data-address="" data-summary-field="" data-field-type="autocomplete" data-validation-type="required-if" data-target="[data-field=&quot;address_name&quot;]" data-value="" autocomplete="off" size="30" class="form-textarea" rows="4"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div id="map"></div>
+                  </div>                  
+                </div> 
+                <button type="submit" class="btn btn-post">Demander</button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    
+
+    
+		<!-- Scripts -->
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/jquery.datetimepicker.full.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 13
+        });
+        var input = /** @type {!HTMLInputElement} */(
+            document.getElementById('job_location'));
+
+        var types = document.getElementById('type-selector');
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+          map: map,
+          anchorPoint: new google.maps.Point(0, -29)
+        });
+
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          marker.setVisible(false);
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            // User entered the name of a Place that was not suggested and
+            // pressed the Enter key, or the Place Details request failed.
+            window.alert("No details available for input: '" + place.name + "'");
+            return;
+          }
+
+          // If the place has a geometry, then present it on a map.
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+          }
+          marker.setIcon(/** @type {google.maps.Icon} */({
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+          }));
+          marker.setPosition(place.geometry.location);
+          marker.setVisible(true);
+
+          var address = '';
+          if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+          infowindow.open(map, marker);
+        });
+
+        // Sets a listener on a radio button to change the filter type on Places
+        // Autocomplete.
+        function setupClickListener(id, types) {
+          var radioButton = document.getElementById(id);
+          radioButton.addEventListener('click', function() {
+            autocomplete.setTypes(types);
+          });
+        }
+
+        setupClickListener('changetype-all', []);
+        setupClickListener('changetype-address', ['address']);
+        setupClickListener('changetype-establishment', ['establishment']);
+        setupClickListener('changetype-geocode', ['geocode']);
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPaLnUjW7EK-j0JFvyl1tp98HJqHlpD4w&libraries=places&callback=initMap"
+        async defer></script>
+
+	</body>
+</html>
