@@ -33,8 +33,7 @@ class DemandeController extends Controller
 	echo '<a href = "/demandeInsertForm">Click Here</a> to go back.';
 	}
 
-    public function filter(Request $request){
-    	$categorie = $request->input('categorie');
+    public function filter($categorie){
     	$demandes = Demande::where('categorie', '=', $categorie)->get();
 		return view('demandes', array('demandes' => $demandes));
     }

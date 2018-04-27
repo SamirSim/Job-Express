@@ -157,7 +157,7 @@
             @foreach ($demandes as $demande)
               <div class="col-xs-12 col-lg-3">
                 <div class="LastRequestItem">
-                  <a class="LastRequestItemLink" href="demandeInfo/{{$demande->id}}"></a>
+                  <a class="LastRequestItemLink" href="/demandeInfo/{{$demande->id}}"></a>
                   <div class="LastRequestItemValues">
                     <div class="LastRequestItemDate">{{$demande->dateService}}</div>
                     <div class="LastRequestItemBudget">{{$demande->montant}}</div>

@@ -79,15 +79,12 @@
             <div class="filter-categorie">
               <h3 class="filter-title">Les catégories de travail</h3>
               <ul class="filter-list">
-                <li><a href="#">Bricolage</a></li>
-                <li><a href="#">Bricolage</a></li>
-                <li><a href="#">Bricolage</a></li>
-                <li><a href="#">Bricolage</a></li>
-                <li><a href="#">Bricolage</a></li>
-                <li><a href="#">Bricolage</a></li>
-                <li><a href="#">Bricolage</a></li>
-                <li><a href="#">Bricolage</a></li>
-                <li><a href="#">Bricolage</a></li>
+                <li><a href="/tousLesDemandes/Bricolage">Bricolage</a></li>
+                <li><a href="/tousLesDemandes/Demenagement">Déménagement</a></li>
+                <li><a href="#">Transport</a></li>
+                <li><a href="#">Informatique</a></li>
+                <li><a href="#">Ménage</a></li>
+                <li><a href="#">Autres</a></li>
               </ul>
             </div>
             <div class="filter-city">
