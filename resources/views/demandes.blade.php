@@ -7,7 +7,7 @@
 	<form action="{{ action('DemandeController@filter') }}" method="post">
 		 {{ csrf_field() }}
 		<SELECT  type="text" name="categorie" size="1">
-			<option name="categorie" value="Ménage">Ménage</option>
+			<option name="categorie" value="Demenagement">demenagement</option>
 			<option name="categorie" value="Bricolage">Bricolage</option>
 		</SELECT>
 		

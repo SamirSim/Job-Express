@@ -26,8 +26,8 @@
 	<form action="{{ action('OffreController@insert') }}" method="post">
     {{ csrf_field() }}
     <input type="text" name="contenu" placeholder="contenu">
-    <input type="hidden" name="idUser" value="1">
-    <input type="hidden" name="idDemande" value="1">
+    <input type="hidden" name="idUser" value="6">
+    <input type="hidden" name="idDemande" value="{{ $demande->id }}">
      <button type="submit"> OK </button>
 	</form>
 </body>

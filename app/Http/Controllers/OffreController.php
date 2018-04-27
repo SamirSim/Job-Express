@@ -19,7 +19,7 @@ class OffreController extends Controller
 	DB::table('offres')->insert($data);
 	//echo "Record inserted successfully.<br/>";
 	return redirect()->action(
-		'DemandeController@demandeInfo',['id'=>1]
+		'DemandeController@demandeInfo',['id'=>$idDemande]
 	);
 	}
 }
