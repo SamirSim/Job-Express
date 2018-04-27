@@ -37,6 +37,7 @@ class DemandeController extends Controller
     	$demandes = Demande::where('categorie', '=', $categorie)->get();
 		return view('demandes', array('demandes' => $demandes));
     }
+
     public function demandes(){
     	$demandes = Demande::all();
 		return view('demandes', array('demandes' => $demandes));
@@ -47,4 +48,9 @@ class DemandeController extends Controller
     	return view('demandeInfo', array('demande' => $demande));
     }
 
+    public function lastDemandes(){
+    	$numberLastDemandes = 4;
+    	$demandes = Demande::orderBy('datePub', 'desc')->take($numberLastDemandes)->get();
+		return view('index', array('demandes' => $demandes));
+    }
 }

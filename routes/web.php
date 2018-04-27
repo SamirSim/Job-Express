@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
+Route::get('/','DemandeController@lastDemandes');
 
 Route::get('/demandeInsertForm','DemandeController@insertform');
 
