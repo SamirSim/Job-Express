@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Demandes extends Model
 {
-    protected $fillable = ['contenu', 'datePub', 'idDemande','idUser',];
+    protected $fillable = ['titre','datePub','dateService','lieu','description','montant','categorie','idUser',];
 }
