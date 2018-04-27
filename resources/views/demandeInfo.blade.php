@@ -13,5 +13,20 @@
 	<h3>Date de travaille : {{ $demande->dateService }}</h3>
 	<h3>Description :</h3>
 	<p>{{ $demande->description }}</p>
+
+	@foreach ($demande->offres as $offre)
+			<h3>Date de publication : {{ $offre->datePub }}</h3>
+			<h3>Contenu :</h3>
+			<p>{{ $offre->contenu }}</p>
+	@endforeach
+
+    <title>Form</title>
+	<form action="{{ action('OffreController@insert') }}" method="post">
+    {{ csrf_field() }}
+    <input type="text" name="contenu" placeholder="contenu">
+    <input type="hidden" name="idUser" value="1">
+    <input type="hidden" name="idDemande" value="1">
+     <button type="submit"> OK </button>
+	</form>
 </body>
 </html>

@@ -24,3 +24,5 @@ Route::get('tousLesDemandes', 'DemandeController@demandes');
 
 Route::get('demandeInfo/{id}', 'DemandeController@demandeInfo');
 
+Route::post('/demandeInfo','OffreController@insert');
+
