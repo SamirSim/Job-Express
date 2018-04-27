@@ -16,6 +16,7 @@
 	<p>{{ $demande->description }}</p>
 
 	@foreach ($demande->offres as $offre)
+	<h3>User : {{ $offre->utilisateur->nom }}</h3>
 			<h3>Date de publication : {{ $offre->datePub }}</h3>
 			<h3>Contenu :</h3>
 			<p>{{ $offre->contenu }}</p>

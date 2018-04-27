@@ -33,7 +33,11 @@ class DemandeController extends Controller
 	echo '<a href = "/demandeInsertForm">Click Here</a> to go back.';
 	}
 
-    
+    public function filter(Request $request){
+    	$categorie = $request->input('categorie');
+    	$demandes = Demande::where('categorie', '=', $categorie)->get();
+		return view('demandes', array('demandes' => $demandes));
+    }
     public function demandes(){
     	$demandes = Demande::all();
 		return view('demandes', array('demandes' => $demandes));
@@ -43,8 +47,5 @@ class DemandeController extends Controller
     	$demande = Demande::find($id);
     	return view('demandeInfo', array('demande' => $demande));
     }
-public function filter($categorie){
-    	$demandes = DB::table('demandes')->where('categorie', '=', $categorie)->get();
-		return view('demandes', array('demandes' => $demandes));
-    }
+
 }
