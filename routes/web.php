@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/demandeInsertForm','DemandeController@insertform');
+Route::post('/demandeInsert','DemandeController@insert');

@@ -3,8 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Demande as Demande;
+use Carbon\Carbon;
+use DB;
 class DemandeController extends Controller
 {
-    //
+    public function view(){
+    $demandes = Demande::all();
+   	return view('demande',array('demandes' => $demandes ));
+}
+
+	public function insertform(){
+	return view('demande');
+} 
+
+	public function insert(Request $request){
+	$titre = $request->input('titre');
+	$datePub = Carbon::now();//->toDateTimeString();
+	$dateService = $request->input('dateService');
+	$lieu = $request->input('lieu');
+	$description = $request->input('description');
+	$montant = $request->input('montant');
+	$categorie = $request->input('categorie');
+	$idUser = $request->input('idUser');
+	$data=array('titre'=>$titre,'datePub'=>$datePub,'dateService'=>$dateService,'lieu'=>$lieu,'description'=>$description,'montant'=>$montant,'categorie'=>$categorie,'idUser'=>$idUser);
+	DB::table('demandes')->insert($data);
+	echo "Record inserted successfully.<br/>";
+	echo '<a href = "/demandeInsertForm">Click Here</a> to go back.';
+	}
 }
