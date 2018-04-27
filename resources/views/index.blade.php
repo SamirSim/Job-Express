@@ -5,13 +5,12 @@
 		
     
 		<!-- Bootstrap CSS -->
-		
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/bootstrap-grid.min.css">
-		<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="{{ asset('/css/normalize.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap-grid.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap-reboot.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{{ asset('/css/main.css') }}">
 		
 		<title>Index</title>
 	</head>
@@ -155,90 +154,30 @@
             <h2>Les dernières demandes</h2>
           </div>
           <div class="row">
-            <div class="col-xs-12 col-lg-3">
-              <div class="LastRequestItem">
-                <a class="LastRequestItemLink" href=""></a>
-                <div class="LastRequestItemValues">
-                  <div class="LastRequestItemDate">Hier</div>
-                  <div class="LastRequestItemBudget">15 DA</div>
-                </div>
-                <div class="LastRequestItemID">
-                  <div class="LastRequestItemAvatar avatar-mini">
+            @foreach ($demandes as $demande)
+              <div class="col-xs-12 col-lg-3">
+                <div class="LastRequestItem">
+                  <a class="LastRequestItemLink" href="demandeInfo/{{$demande->id}}"></a>
+                  <div class="LastRequestItemValues">
+                    <div class="LastRequestItemDate">{{$demande->dateService}}</div>
+                    <div class="LastRequestItemBudget">{{$demande->montant}}</div>
                   </div>
-                  <div class="LastRequestItemInfos">
-                    <div class="LastRequestItemName">Nassim</div>
+                  <div class="LastRequestItemID">
+                    <div class="LastRequestItemAvatar avatar-mini">
+                      <img src="{{ asset($demande->utilisateur->photo) }}" alt="">
+                    </div>
+                    <div class="LastRequestItemInfos">
+                      <div class="LastRequestItemName">{{$demande->utilisateur->prenom}}</div>
+                    </div>
                   </div>
-                </div>
-                <div class="LastRequestItemTitle">Cherche Plomberie - Installation sanitaire</div>
-                <div class="LastRequestItemLocation">
-                  <i class="fa fa-map-marker"></i>
-                  Didouche Mourad Street, Sidi M'Hamed
+                  <div class="LastRequestItemTitle">{{$demande->titre}}</div>
+                  <div class="LastRequestItemLocation">
+                    <i class="fa fa-map-marker"></i>
+                    {{$demande->lieu}}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-xs-12 col-lg-3">
-              <div class="LastRequestItem">
-                <a class="LastRequestItemLink" href=""></a>
-                <div class="LastRequestItemValues">
-                  <div class="LastRequestItemDate">Hier</div>
-                  <div class="LastRequestItemBudget">15 DA</div>
-                </div>
-                <div class="LastRequestItemID">
-                  <div class="LastRequestItemAvatar avatar-mini">
-                  </div>
-                  <div class="LastRequestItemInfos">
-                    <div class="LastRequestItemName">Nassim</div>
-                  </div>
-                </div>
-                <div class="LastRequestItemTitle">Cherche Plomberie - Installation sanitaire</div>
-                <div class="LastRequestItemLocation">
-                  <i class="fa fa-map-marker"></i>
-                  Didouche Mourad Street, Sidi M'Hamed
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-3">
-              <div class="LastRequestItem">
-                <a class="LastRequestItemLink" href=""></a>
-                <div class="LastRequestItemValues">
-                  <div class="LastRequestItemDate">Hier</div>
-                  <div class="LastRequestItemBudget">15 DA</div>
-                </div>
-                <div class="LastRequestItemID">
-                  <div class="LastRequestItemAvatar avatar-mini">
-                  </div>
-                  <div class="LastRequestItemInfos">
-                    <div class="LastRequestItemName">Nassim</div>
-                  </div>
-                </div>
-                <div class="LastRequestItemTitle">Cherche Plomberie - Installation sanitaire</div>
-                <div class="LastRequestItemLocation">
-                  <i class="fa fa-map-marker"></i>
-                  Didouche Mourad Street, Sidi M'Hamed
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-3">
-              <div class="LastRequestItem">
-                <a class="LastRequestItemLink" href=""></a>
-                <div class="LastRequestItemValues">
-                  <div class="LastRequestItemDate">Hier</div>
-                  <div class="LastRequestItemBudget">15 DA</div>
-                </div>
-                <div class="LastRequestItemID">
-                  <div class="LastRequestItemAvatar avatar-mini">
-                  </div>
-                  <div class="LastRequestItemInfos">
-                    <div class="LastRequestItemName">Nassim</div>
-                  </div>
-                </div>
-                <div class="LastRequestItemTitle">Cherche Plomberie - Installation sanitaire</div>
-                <div class="LastRequestItemLocation">
-                  <i class="fa fa-map-marker"></i>
-                  Didouche Mourad Street, Sidi M'Hamed
-                </div>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
       </div>
@@ -311,9 +250,9 @@
     </footer> 
     
 		<!-- Scripts -->
-		<script src="js/jquery-3.3.1.min.js"></script>
-		<script src="js/popper.min.js"></script>
-		<script src="js/bootstrap.bundle.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="{{ asset('/js/jquery-3.3.1.min.js') }}"></script>
+		<script src="{{ asset('/js/popper.min.js') }}"></script>
+		<script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+		<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 	</body>
 </html>
