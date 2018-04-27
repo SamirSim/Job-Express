@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('tousLesDemandes', 'DemandeController@demandes');
+
+Route::get('demandeInfo/{id}', 'DemandeController@demandeInfo');
