@@ -105,7 +105,7 @@
           <div class="col-xs-12 col-sm-12 col-md-9">
           @foreach ($demandes as $demande)
             <article class="requestItem">
-              <a class="requestItemLink" href="demandeInfo/{{ $demande->id }}"></a>
+              <a class="requestItemLink" href="/demandeInfo/{{ $demande->id }}"></a>
               <div class="requestItemValues">
                 <div class="requestItemDate">{{ $demande->datePub }}</div>
                 <div class="requestItemLabel">{{ $demande->montant }}</div>
