@@ -96,8 +96,7 @@
               <h2 class="category-title">Déménagement</h2>
             </a>
           </div>
-        </div>
-        <div class="row">
+          
           <div class="col-xs-12 col-sm-6 col-lg-4">
             <a class="link-categories-block" href="">
               <div class="categories-block category-bg bg-category-cleaning"></div>
