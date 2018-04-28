@@ -18,9 +18,7 @@ class CreateOffresTable extends Migration
             $table->string('contenu');
             $table->date('datePub');
             $table->unsignedInteger('idDemande');
-            $table->foreign('idDemande')->references('id')->on('demandes');
             $table->unsignedInteger('idUser');
-            $table->foreign('idUser')->references('id')->on('users');
         });
     }
 

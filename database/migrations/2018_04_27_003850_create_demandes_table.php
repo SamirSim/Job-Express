@@ -23,7 +23,6 @@ class CreateDemandesTable extends Migration
             $table->string('montant');
             $table->string('categorie');
             $table->unsignedInteger('idUser');
-            $table->foreign('idUser')->references('id')->on('users');
         });
     }
 
