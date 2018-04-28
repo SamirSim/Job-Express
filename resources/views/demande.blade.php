@@ -103,33 +103,26 @@
               </div>
               <form action="{{ action('DemandeController@insert') }}" method="post">
                 {{ csrf_field() }}
-                <div class="row">
-                  <div class="form-group col-sm-6">
-                    <label class="control-label" for="job_categorie">Catégorie du travail</label>
-                    <select class="form-control" id="job_categorie" name="categorie">
-                      <option>Bricolage</option>
-                      <option>Jardinage</option>
-                      <option>Déménagement</option>
-                      <option>Ménage</option>
-                      <option>Garde d'enfants</option>
-                      <option>Animaux</option>
-                      <option>Informatique</option>
-                      <option>Conciergerie</option>
-                    </select> 
-                  </div>
-                  <div class="form-group col-sm-6">
-                    <label class="control-label" for="job_title">Titre du job</label>
-                    <input placeholder="De quoi avez-vous besoin ?" maxlength="80" class="form-control" data-component="field-validator" data-summary-field="" size="80" type="text" name="titre" id="job_title">
-                  </div>
-                </div>
-                  
-                <div class="row">
+                <div class="row form-area">
                   <div class="col-sm-6">
-                    <div class="form-group">
-                      <label class="control-label" for="job_location">Adresse complète</label>
-                      <input name="lieu" type="text" id="job_location" placeholder="Lieu du travail" data-provide="typeahead" data-address="" data-summary-field="" data-field-type="autocomplete" data-validation-type="required-if" data-target="[data-field=&quot;address_name&quot;]" data-value="" autocomplete="off" size="30" class="form-control">
-                    </div>
                     <div class="row">
+                      <div class="form-group col-sm-12">
+                        <label class="control-label" for="job_categorie">Catégorie du travail</label>
+                        <select class="form-control" id="job_categorie" name="categorie">
+                          <option>Bricolage</option>
+                          <option>Jardinage</option>
+                          <option>Déménagement</option>
+                          <option>Ménage</option>
+                          <option>Garde d'enfants</option>
+                          <option>Animaux</option>
+                          <option>Informatique</option>
+                          <option>Conciergerie</option>
+                        </select> 
+                      </div>
+                      <div class="form-group col-sm-12">
+                        <label class="control-label" for="job_title">Titre du job</label>
+                        <input placeholder="De quoi avez-vous besoin ?" maxlength="80" class="form-control" data-component="field-validator" data-summary-field="" size="80" type="text" name="titre" id="job_title">
+                      </div>
                       <div class="form-group col-sm-6">
                         <label class="control-label" for="job_date">Date</label>
                         <input name="dateService" type="date" id="" placeholder="Quand vous en avez besoin ?" data-provide="typeahead" data-address="" data-summary-field="" data-field-type="autocomplete" data-validation-type="required-if" data-target="[data-field=&quot;address_name&quot;]" data-value="" autocomplete="off" size="30" class="form-control">
@@ -139,13 +132,17 @@
                         <input name="montant" type="text" id="job_budget" placeholder="Budget estimé" data-provide="typeahead" data-address="" data-summary-field="" data-field-type="autocomplete" data-validation-type="required-if" data-target="[data-field=&quot;address_name&quot;]" data-value="" autocomplete="off" size="30" class="form-control">
                       </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group description">
                       <label class="control-label" for="job_description">Description</label>
                       <textarea name="description" id="job_description" placeholder="Décrivez votre besoin" data-provide="typeahead" data-address="" data-summary-field="" data-field-type="autocomplete" data-validation-type="required-if" data-target="[data-field=&quot;address_name&quot;]" data-value="" autocomplete="off" size="30" class="form-textarea" rows="4"></textarea>
                     </div>
                   </div>
                   <div class="col-sm-6">
-                    <div id="map"></div>
+                    <div class="form-group" style="margin-bottom: 0">
+                      <label class="control-label" for="job_location">Adresse complète</label>
+                      <input name="lieu" id="job_location" class="controls" type="text" placeholder="Lieu du travail">
+                    </div>
+                    <div id="map" style="height: 100%"></div>
                   </div>                  
                 </div> 
                 <!-- user id -->
@@ -158,7 +155,6 @@
         </div>
       </div>
     </section>
-  
     
 		<!-- Scripts -->
 		<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
@@ -166,7 +162,89 @@
 		<script src="{{ asset('js/popper.min.js') }}"></script>
 		<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-		
+    <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 36.7538259, lng: 3.0534636},
+          zoom: 13
+        });
+        var input = /** @type {!HTMLInputElement} */(
+            document.getElementById('job_location'));
+
+        var types = document.getElementById('type-selector');
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+          map: map,
+          anchorPoint: new google.maps.Point(0, -29)
+        });
+
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          marker.setVisible(false);
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            // User entered the name of a Place that was not suggested and
+            // pressed the Enter key, or the Place Details request failed.
+            window.alert("No details available for input: '" + place.name + "'");
+            return;
+          }
+
+          // If the place has a geometry, then present it on a map.
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+          }
+          marker.setIcon(/** @type {google.maps.Icon} */({
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+          }));
+          marker.setPosition(place.geometry.location);
+          marker.setVisible(true);
+
+          var address = '';
+          if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+          infowindow.open(map, marker);
+        });
+
+        // Sets a listener on a radio button to change the filter type on Places
+        // Autocomplete.
+        function setupClickListener(id, types) {
+          var radioButton = document.getElementById(id);
+          radioButton.addEventListener('click', function() {
+            autocomplete.setTypes(types);
+          });
+        }
+
+        setupClickListener('changetype-all', []);
+        setupClickListener('changetype-address', ['address']);
+        setupClickListener('changetype-establishment', ['establishment']);
+        setupClickListener('changetype-geocode', ['geocode']);
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPaLnUjW7EK-j0JFvyl1tp98HJqHlpD4w&libraries=places&callback=initMap" async defer></script>
 
 	</body>
 </html>

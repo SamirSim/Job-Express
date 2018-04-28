@@ -223,6 +223,7 @@ header .intro .btn:hover {
 
 .bg-category-event{
   background-color: #20bf6b;
+  
 }
 
 .bg-category-gardening{
@@ -311,11 +312,13 @@ header .intro .btn:hover {
   height: 70px;
   text-align: center;
   vertical-align: middle;
-  border: 3px solid #abb1ba;
-  border-radius: 50%;
   margin-bottom: 20px;
   color: #20bf6b;
   border-color: #20bf6b;
+}
+
+.effective {
+  height: 70 !important;
 }
 
 /*==========================
@@ -526,8 +529,40 @@ III)  Request
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
+.form-area {
+  overflow: hidden;
+}
+
+.description {
+  margin-bottom: 0;
+}
+
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#job_location {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+
 .btn-post {
   padding: 5px 20px;
+  margin-top: 30px;
 }
 
 /***************************************************
