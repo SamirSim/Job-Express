@@ -110,13 +110,11 @@
                         <label class="control-label" for="job_categorie">Catégorie du travail</label>
                         <select class="form-control" id="job_categorie" name="categorie">
                           <option>Bricolage</option>
-                          <option>Jardinage</option>
                           <option>Déménagement</option>
+                          <option>Transport</option>
                           <option>Ménage</option>
-                          <option>Garde d'enfants</option>
-                          <option>Animaux</option>
                           <option>Informatique</option>
-                          <option>Conciergerie</option>
+                          <option>Autres...</option>
                         </select> 
                       </div>
                       <div class="form-group col-sm-12">
@@ -155,6 +153,54 @@
         </div>
       </div>
     </section>
+
+    <footer class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div style="width: 200px; padding: 30px 0;">
+              <img src="{{ asset('/img/logo2.png') }}" style="width: 100%">
+            </div>
+            <ul style="display: inline-block; padding: 0 27px;">
+              <li style="display: inline-block; margin-right: 10px"><i class="fab fa-facebook fa-2x"></i></li>
+              <li style="display: inline-block; margin-right: 10px"><i class="fab fa-instagram fa-2x"></i></li>
+              <li style="display: inline-block; margin-right: 10px"><i class="fab fa-twitter fa-2x"></i></li>
+              <li style="display: inline-block; margin-right: 10px"><i class="fab fa-youtube fa-2x"></i></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h4 class="footer-title-section">Découvrir</h4>
+            <ul>
+              <li>Demander un service</li>
+              <li>Trouver un job</li>
+              <li>Avis clients</li>
+              <li>Tous les services</li>
+              <li>Toutes les villes</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h4 class="footer-title-section">Top recherches</h4>
+            <ul>
+              <li>Bricolage</li>
+              <li>Déménagement</li>
+              <li>Alger</li>
+              <li>Mecanicien</li>
+              <li>Plombier</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h4 class="footer-title-section">Informations utiles</h4>
+            <ul>
+              <li>Qui sommes-nous ?</li>
+              <li>Centre d'aide</li>
+              <li>Règles de diffusion des annonces</li>
+              <li>Assurances</li>
+              <li>Plan de site</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer> 
     
 		<!-- Scripts -->
 		<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>

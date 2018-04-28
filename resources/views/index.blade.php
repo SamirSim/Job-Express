@@ -17,7 +17,9 @@
 	<body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="/">Navbar</a>
+        <a class="navbar-brand" href="#">
+          <img src="img/logo.png">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -64,8 +66,7 @@
           <div class="container">
             <h1 class="intro-title text-shadow">Service à domicile entre particuliers !</h1>
             <p>Trouvez la personne qui vous sert en tout moment</p>
-            <a data-scroll="true" class="btn" href="#post-job">De quel service avez-vous besoin ?</a>
-            
+            <button data-scroll="true" class="btn btn-intro" href="#post-job">De quel service avez-vous besoin ?</button>
           </div>
         </div>
       </div>
@@ -219,7 +220,7 @@
         <div class="row">
           <div class="col-md-3">
             <div style="width: 200px; padding: 30px 0;">
-              <img src="img/logo2.png" style="width: 100%">
+              <img src="{{ asset('/img/logo2.png') }}" style="width: 100%">
             </div>
             <ul style="display: inline-block; padding: 0 27px;">
               <li style="display: inline-block; margin-right: 10px"><i class="fab fa-facebook fa-2x"></i></li>
@@ -231,30 +232,31 @@
           <div class="col-md-3">
             <h4 class="footer-title-section">Découvrir</h4>
             <ul>
+              <li>Demander un service</li>
+              <li>Trouver un job</li>
+              <li>Avis clients</li>
               <li>Tous les services</li>
               <li>Toutes les villes</li>
-              <li>Tous les jobeurs</li>
-              <li>Tous les jobs</li>
             </ul>
           </div>
           <div class="col-md-3">
             <h4 class="footer-title-section">Top recherches</h4>
             <ul>
-              <li>Motchotcho</li>
-              <li>Motchotcho</li>
-              <li>Motchotcho</li>
-              <li>Motchotcho</li>
-              <li>Motchotcho</li>
+              <li>Bricolage</li>
+              <li>Déménagement</li>
+              <li>Alger</li>
+              <li>Mecanicien</li>
+              <li>Plombier</li>
             </ul>
           </div>
           <div class="col-md-3">
             <h4 class="footer-title-section">Informations utiles</h4>
             <ul>
-              <li>Motchotcho</li>
-              <li>Motchotcho</li>
-              <li>Motchotcho</li>
-              <li>Motchotcho</li>
-              <li>Motchotcho</li>
+              <li>Qui sommes-nous ?</li>
+              <li>Centre d'aide</li>
+              <li>Règles de diffusion des annonces</li>
+              <li>Assurances</li>
+              <li>Plan de site</li>
             </ul>
           </div>
         </div>
