@@ -187,7 +187,7 @@
     <section class="features">
       <div class="container-fluid text-center">
         <div class="features-title">
-          <h2>Pourqoui nous ?</h2>
+          <h2>Pourquoi nous ?</h2>
         </div>
         <div class="row">
           <div class="col-sm-4">
