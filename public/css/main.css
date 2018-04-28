@@ -222,11 +222,11 @@ header .intro .btn:hover {
 }
 
 .bg-category-event{
-  background-image: url("../img/event.jpg");
+  background-color: #20bf6b;
 }
 
 .bg-category-gardening{
-  background-image: url("../img/gardening.jpg");
+  background-image: url("../img/transport.jpg");
 }
 
 .bg-category-informatique{
