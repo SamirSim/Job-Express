@@ -11,13 +11,15 @@
 		<link rel="stylesheet" href="{{ asset('/css/bootstrap-reboot.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('/css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    
 		
 		<title>Toutes les demandes</title>
 	</head>
 	<body>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="/">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,18 +27,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto navbar-white">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/">Accueil<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Demander un service</a>
+              <a class="nav-link" href="/demandeInsertForm">Demander un service</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Tous les demandes</a>
+              <a class="nav-link" href="/tousLesDemandes">Toutes les demandes</a>
             </li>
             <li id="notification-sub-menu" class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#notification-sub-menu" role="button">
-                <i class="fa fa-bell-o fa-lg"></i> 
-                <span class="badge">1</span>
+                <i class="far fa-bell fa-lg"></i>
+                <span class="badge secondary-bg-color">1</span>
                 <span class="caret"></span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -57,7 +59,7 @@
         </div>
       </div>
     </nav>
-    
+
 		<header class="all-requests-cover">
       <div class="overlay">
         <div class="intro text-center">
@@ -112,7 +114,7 @@
               </div>
               <div class="requestItemID">
                 <div class="requestItemAvatar">
-                  <img src="{{ asset($demande->utilisateur->photo) }}" alt="">
+                  <img width="100%" height="100%" src="{{ asset($demande->utilisateur->photo) }}" alt="">
                 </div>
                 <div class="requestItemInfos">
                   <div class="requestItemName">{{ $demande->utilisateur->nom }} {{ $demande->utilisateur->prenom }}</div>
@@ -121,7 +123,9 @@
                   <div class="requestItemBottom">
                     <div class="requestItemLocation">
                       <i class="fa fa-1x fa-map-marker"></i>
-                      {{ $demande->lieu }}
+                      {{ $demande->lieu }}  /    
+                      <i class="far fa-calendar"></i>
+                      {{$demande->dateService}}
                     </div>
                     
                   </div>

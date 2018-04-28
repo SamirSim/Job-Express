@@ -21,11 +21,11 @@ Route::get('/demandeInsertForm','DemandeController@insertform');
 
 Route::post('/demandeInsert','DemandeController@insert');
 
-Route::get('tousLesDemandes', 'DemandeController@demandes');
+Route::get('/tousLesDemandes', 'DemandeController@demandes');
 
-Route::get('tousLesDemandes/{categorie}', 'DemandeController@filter');
+Route::get('/tousLesDemandes/{categorie}', 'DemandeController@filter');
 
-Route::get('demandeInfo/{id}', 'DemandeController@demandeInfo');
+Route::get('/demandeInfo/{id}', 'DemandeController@demandeInfo');
 
 Route::post('/demandeInfo','OffreController@insert');
 
