@@ -163,7 +163,7 @@
                   </div>
                   <div class="LastRequestItemID">
                     <div class="LastRequestItemAvatar avatar-mini">
-                      <img src="{{ asset($demande->utilisateur->photo) }}" alt="">
+                      <img width="100%" height="100%" src="{{ asset($demande->utilisateur->photo) }}" alt="">
                     </div>
                     <div class="LastRequestItemInfos">
                       <div class="LastRequestItemName">{{$demande->utilisateur->prenom}}</div>
