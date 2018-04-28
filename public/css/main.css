@@ -226,7 +226,7 @@ header .intro .btn:hover {
 }
 
 .bg-category-gardening{
-  background-image: url("../img/transport.jpg");
+  background-image: url("../img/gardening.jpg");
 }
 
 .bg-category-informatique{
@@ -323,7 +323,6 @@ header .intro .btn:hover {
 ==========================*/
 .lastRequests {
   margin: 80px 0;
-  height: 500px;
   padding: 0;
   position: relative;
   background-image: url(../img/last-requests-bg.jpg);
@@ -688,3 +687,131 @@ IV)   All requests
 /***************************************************
 V)    Detail 
 ***************************************************/
+
+.RequestDetail-item {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 24px;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 30px 20px -30px rgba(0,0,0,0.08);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.RequestDetail-itemValues {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0px 0px 10px 0px;
+}
+
+.RequestDetail-itemDate {
+  flex-grow: 1;
+  color: #b3b3b3;
+  font-size: 11px;
+}
+
+.RequestDetail-itemLabel {
+  padding: 2.8px 14px;
+  border-radius: 24px;
+  background-color: #eb3b5a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 8px;
+}
+
+.RequestDetail-itemId {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0px 0px 16px 0px;
+}
+
+.RequestDetail-itemInfo {
+  font-weight: 500; 
+}
+
+.RequestDetail-itemAvatar {
+  position: relative;
+  flex-grow: 0;
+  margin: 0 16px 0 0 !important;
+  background-color: #ccc;
+  color: #fff;
+  text-align: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 120px;
+  overflow: hidden;
+}
+
+.RequestDetail-itemTitle {
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 28px;
+  overflow: hidden;
+  margin: 0px 0px 12px 0px;
+}
+
+.RequestDetail-itemDescription {
+  color: gray;
+  font-size: 16px;
+  line-height: 20px;
+  height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0px 0px 16px 0px;
+}
+
+.RequestDetail-itemButton {
+  
+}
+
+.RequestDetail-itemBottom {
+  margin: 16px 0px 0px 0px;
+  padding: 16px 0px 0px 0px;
+  color: #b3b3b3;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 15px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.RequestDetail-itemLocation {
+  
+}
+
+.btn-demande {
+  padding: 5px 20px;
+  color: #fff;
+}
+
+.lastRequestsDetail {
+  margin: 80px 0;
+  padding: 0;
+  position: relative;
+}
+
+.lastRequestsDetail .lastRequests-title {
+  color: #333;
+}
+
+.AllOffers-title {
+  margin: 0px 0px 56px 0px;
+}
+
+.AllOffers .requestItemID {
+  margin-top: 10px;
+}
+
+.AllOffers  .requestItemName {
+  font-weight: 500;
+  font-size: 18px;
+}
